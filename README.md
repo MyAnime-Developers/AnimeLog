@@ -1,4 +1,4 @@
-# Milestone 1 - MyAnimeList
+# Milestone 1 - AnimeLog
 
 ## Table of Contents
 
