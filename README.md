@@ -20,7 +20,7 @@ AnimeLog is an app where users can track the anime shows they're watching, as we
 - **Story:** Anime fans can keep track of various anime shows being released or already released anime shows. 
 - **Market:** Geared towards Anime fans whether hardcore or casual anime watchers.
 - **Habit:** Depending on each person it won't be a daily thing, but we expect users to use it weekly. 
-- **Scope:** Should be somewhat similar to the Flixster movie review app we completed in the past, but incorporating anime reviews and anime related content.
+- **Scope:** Should be somewhat similar to the MyFlixr movie review app we completed in the past, but incorporating anime reviews and anime related content.
 
 ## Product Spec
 
@@ -70,7 +70,7 @@ AnimeLog is an app where users can track the anime shows they're watching, as we
 ## Wireframes
 
 [Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="[YOUR_WIREFRAME_IMAGE_URL](https://cdn.discordapp.com/attachments/1030224147529343037/1031299623685464154/IMG_2736.jpg)" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
