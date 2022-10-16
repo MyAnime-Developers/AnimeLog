@@ -16,7 +16,7 @@ AnimeLog is an app where users can track the anime shows they're watching, as we
 
 [Evaluation of your app across the following attributes]
 - **Category:** Entertainment
-- **Mobile:** Inspired by my anime list website. Going to have descriptions based on voice actors, clips/ss of anime shows, reviews of anime viewers. 
+- **Mobile:** Inspired by my anime list website. Going to have descriptions based on voice actors, clips/ss of anime shows, reviews of anime viewers. When adding an anime to your list, it will include an audio sound jingle and a toast will be displayed.
 - **Story:** Anime fans can keep track of various anime shows being released or already released anime shows. 
 - **Market:** Geared towards Anime fans whether hardcore or casual anime watchers.
 - **Habit:** Depending on each person it won't be a daily thing, but we expect users to use it weekly. 
