@@ -10,7 +10,7 @@
 
 ### Description
 
-MyAnimeList is an app where users can track the anime shows they're watching, as well as view the general information about a show, including the overview, voice actors, etc.
+AnimeLog is an app where users can track the anime shows they're watching, as well as view the general information about a show, including the overview, voice actors, etc.
 
 ### App Evaluation
 
