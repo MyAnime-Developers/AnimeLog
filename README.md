@@ -70,7 +70,7 @@ AnimeLog is an app where users can track the anime shows they're watching, as we
 ## Wireframes
 
 [Add picture of your hand sketched wireframes in this section]
-<img src="[YOUR_WIREFRAME_IMAGE_URL](https://cdn.discordapp.com/attachments/1030224147529343037/1031299623685464154/IMG_2736.jpg)" width=600>
+<img src="https://cdn.discordapp.com/attachments/1030224147529343037/1031299623685464154/IMG_2736.jpg" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
