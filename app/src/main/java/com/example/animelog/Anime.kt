@@ -1,14 +1,15 @@
-package com.example.flixster
+package com.example.animelog
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-class Movie () {
+class Anime (): Serializable {
     @SerializedName("title")
     var title: String? = null
 
     @SerializedName("description")
     var description: String? = null
 
-    @SerializedName("movie_image")
-    var movieImageUrl: String? = null
+    @SerializedName("poster_image")
+    var posterImageUrl: String? = null
 }

@@ -20,26 +20,13 @@
         app:layout_constraintEnd_toEndOf="@+id/Rv"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="393dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:text="Popular TV Shows"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Rv"
-        android:layout_width="409dp"
-        android:layout_height="673dp"
+        android:layout_width="411dp"
+        android:layout_height="733dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,8 @@
-package com.example.flixster
+package com.example.animelog
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,13 +12,12 @@ import okhttp3.Headers
 import com.google.gson.Gson
 import org.json.JSONException
 
-private const val now_playing_api = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"
 private const val popular_shows_api = "https://api.themoviedb.org/3/tv/popular?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1"
+private const val current_season_api = "https://api.jikan.moe/v4/seasons/now"
 class MainActivity : AppCompatActivity() {
     // creates mutable list of movies
 
-    var MoviesList: MutableList<Movie> = ArrayList()
-    var ShowsList: MutableList<Show> = ArrayList()
+    var AnimeList: MutableList<Anime> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
 
 //        var itemsAdapter = MovieRecyclerViewAdapter(MoviesList)
-        var itemsAdapter = ShowRecyclerViewAdapter(ShowsList, this)
+        var itemsAdapter = AnimeRecyclerViewAdapter(AnimeList, this)
 
         Rv.adapter = itemsAdapter
         Rv.layoutManager = LinearLayoutManager(this)
@@ -43,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // attempts to retrieve api data
-        client.get(popular_shows_api, object: JsonHttpResponseHandler(){
+        client.get(current_season_api, object: JsonHttpResponseHandler(){
             // if fails
             override fun onFailure(
                 statusCode: Int,
@@ -68,22 +66,24 @@ class MainActivity : AppCompatActivity() {
 //                        new_show.description = json_obj.getString("overview")
 //                        new_show.movieImageUrl = json_obj.getString("poster_path")
 //                        MoviesList.add(new_show)
-                    val showJsonArray = json.jsonObject.getJSONArray("results")
+                    val showJsonArray = json.jsonObject.getJSONArray("data")
                     for (i in 0 until showJsonArray.length()) {
                         var json_obj = showJsonArray.getJSONObject(i)
-                        var new_show = Show()
-                        new_show.title = json_obj.getString("name")
-                        new_show.description = json_obj.getString("overview")
-                        new_show.showImageUrl = json_obj.getString("poster_path")
-                        new_show.firstAirDate = json_obj.getString("first_air_date")
-                        new_show.voteAverage = json_obj.getString("vote_average")
-                        ShowsList.add(new_show)
+                        var new_anime = Anime()
+                        new_anime.title = json_obj.getString("title")
+
+                        var images = json_obj.getJSONObject("images")
+                        var jpg = images.getJSONObject("jpg")
+                        new_anime.posterImageUrl = jpg.getString("image_url")
+
+
+                        AnimeList.add(new_anime)
                     }
 
                 }
                 // if theres an error, throw error message and hide progress bar
                 catch (e: JSONException){
-                    Log.e("MainActivity", "Encountered exception $e")
+                      Log.e("MainActivity", "Encountered exception $e")
                     progressBar.hide()
                 }
 

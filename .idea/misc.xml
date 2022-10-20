@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/yinka333/AndroidStudioProjects/AnimeLog(New)/app/src/main/res/layout/activity_main.xml" value="0.2807971014492754" />
+        <entry key="..\:/Users/yinka333/AndroidStudioProjects/AnimeLog(New)/app/src/main/res/layout/anime.xml" value="0.328125" />
+        <entry key="..\:/Users/yinka333/AndroidStudioProjects/AnimeLog(New)/app/src/main/res/layout/show.xml" value="0.328125" />
+        <entry key="..\:/Users/yinka333/AndroidStudioProjects/AnimeLog(New)/app/src/main/res/layout/show_activity_detail.xml" value="0.2807971014492754" />
         <entry key="..\:/Users/yinka333/AndroidStudioProjects/Movielist/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/yinka333/AndroidStudioProjects/Movielist/app/src/main/res/layout/fragment_movie.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/yinka333/AndroidStudioProjects/Movielist/app/src/main/res/layout/fragment_movie_list.xml" value="0.1" />
