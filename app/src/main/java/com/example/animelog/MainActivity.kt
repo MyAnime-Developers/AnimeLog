@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
             // if succeeds
             override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON) {
-                Log.e("MainActivity", "On Failure $json")
+                //Log.e("MainActivity", "On Failure $json")
                 try {
                     // shows progress bar and adds each movie from api into list
                     progressBar.show()
