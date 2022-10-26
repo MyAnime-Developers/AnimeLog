@@ -9,10 +9,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.animelog.fragments.HomeFragment
 
 
 class AnimeRecyclerViewAdapter(
-    private val shows: List<Anime>, private val context: Context
+    private val shows: List<Anime>, private val context: HomeFragment
 )  : RecyclerView.Adapter<AnimeRecyclerViewAdapter.AnimeViewHolder>()
 {
     inner class AnimeViewHolder(val mView: View) : RecyclerView.ViewHolder(mView), View.OnClickListener {
