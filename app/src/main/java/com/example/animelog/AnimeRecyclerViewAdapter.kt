@@ -19,10 +19,12 @@ class AnimeRecyclerViewAdapter(
     inner class AnimeViewHolder(val mView: View) : RecyclerView.ViewHolder(mView), View.OnClickListener {
         var mItem: Anime? = null
         val mAnimeTitle: TextView
+        val mAnimeGenre: TextView
         val mAnimeImage: ImageView
 
         init {
             mAnimeTitle = itemView.findViewById<TextView>(R.id.title)
+            mAnimeGenre = itemView.findViewById<TextView>(R.id.genre)
             mAnimeImage = itemView.findViewById<ImageView>(R.id.image)
 
             mView.setOnClickListener(this)
@@ -46,6 +48,10 @@ class AnimeRecyclerViewAdapter(
     override fun onBindViewHolder(holder: AnimeViewHolder, position: Int) {
         val anime = shows[position]
         holder.mAnimeTitle.text = anime.title
+        holder.mAnimeGenre.text = ""
+        for (genre in anime.genre.orEmpty()){
+            holder.mAnimeGenre.text = holder.mAnimeGenre.text.toString() + genre + "     "
+        }
         Glide.with(holder.mView)
             .load(anime.posterImageUrl)
             .centerInside()

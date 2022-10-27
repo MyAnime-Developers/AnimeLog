@@ -12,4 +12,7 @@ class Anime (): Serializable {
 
     @SerializedName("poster_image")
     var posterImageUrl: String? = null
+
+    @SerializedName("genre")
+    var genre: MutableList<String>? = null
 }
