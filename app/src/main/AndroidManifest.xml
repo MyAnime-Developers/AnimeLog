@@ -15,6 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AnimeLog"
         tools:targetApi="31">
+        <activity android:name=".fragments.DetailActivity"
+            android:exported="true" />
         <activity
             android:name="com.example.animelog.MainActivity"
             android:exported="true">

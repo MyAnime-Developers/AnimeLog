@@ -1,6 +1,5 @@
 package com.example.animelog
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +8,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.animelog.fragments.DetailActivity
 import com.example.animelog.fragments.HomeFragment
+import android.content.Context
 
+
+const val ANIME_EXTRA = "ANIME_EXTRA"
 
 class AnimeRecyclerViewAdapter(
-    private val shows: List<Anime>, private val context: HomeFragment
+    private val animes: List<Anime>, private val context: Context
 )  : RecyclerView.Adapter<AnimeRecyclerViewAdapter.AnimeViewHolder>()
 {
     inner class AnimeViewHolder(val mView: View) : RecyclerView.ViewHolder(mView), View.OnClickListener {
@@ -33,6 +36,12 @@ class AnimeRecyclerViewAdapter(
         }
 
         override fun onClick(p0: View?) {
+            val show = animes[adapterPosition]
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra(ANIME_EXTRA, show)
+            context.startActivity(intent)
+
+
 
 
         }
@@ -46,7 +55,7 @@ class AnimeRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: AnimeViewHolder, position: Int) {
-        val anime = shows[position]
+        val anime = animes[position]
         holder.mAnimeTitle.text = anime.title
         holder.mAnimeGenre.text = ""
         for (genre in anime.genre.orEmpty()){
@@ -61,7 +70,7 @@ class AnimeRecyclerViewAdapter(
 
 
     override fun getItemCount(): Int {
-        return shows.size
+        return animes.size
     }
 
 }

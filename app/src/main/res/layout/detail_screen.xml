@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/animeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/textview"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/rating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.089" />
+
+    <RatingBar
+        android:id="@+id/rating"
+        style="@style/Widget.AppCompat.RatingBar.Indicator"
+        android:layout_width="357dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="384dp"
+        android:gravity="center"
+        android:isIndicator="true"
+        android:numStars="10"
+        android:rating="8.71"
+        android:stepSize="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/animeOverview"
+        android:layout_width="405dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/textview2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rating" />
+
+    <ImageView
+        android:id="@+id/animeImage"
+        android:layout_width="238dp"
+        android:layout_height="235dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/todo"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/animeOverview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/animeTitle"
+        app:layout_constraintVertical_bias="0.048"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Genre goes here"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.16" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

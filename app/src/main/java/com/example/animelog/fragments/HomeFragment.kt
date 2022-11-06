@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +15,6 @@ import com.example.animelog.Anime
 import com.example.animelog.AnimeRecyclerViewAdapter
 import com.example.animelog.R
 //import com.example.animelog.current_season_api
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import okhttp3.Headers
 import org.json.JSONException
@@ -38,8 +36,9 @@ class HomeFragment : Fragment() {
         // assigns views to variables and set up recyclerview
         val Rv = view.findViewById<RecyclerView>(R.id.Rv)
 
+
         var AnimeList: MutableList<Anime> = ArrayList()
-        var itemsAdapter = AnimeRecyclerViewAdapter(AnimeList, this)
+        var itemsAdapter = AnimeRecyclerViewAdapter(AnimeList, requireActivity())
         Rv.adapter = itemsAdapter
         Rv.layoutManager = LinearLayoutManager(requireContext())
 
@@ -83,6 +82,8 @@ class HomeFragment : Fragment() {
                             var gen_name = genre.getString("name")
                             genreList.add(gen_name)
                         }
+
+                        new_anime.description = json_obj.getString("synopsis")
 
                         new_anime.genre = genreList
 

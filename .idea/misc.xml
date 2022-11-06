@@ -22,6 +22,12 @@
         <entry key="..\:/Users/yinka333/AndroidStudioProjects/New Movielist/app/src/main/res/layout/show.xml" value="0.2717391304347826" />
         <entry key="..\:/Users/yinka333/AndroidStudioProjects/New Movielist/app/src/main/res/layout/show_activity_detail.xml" value="0.165" />
         <entry key="..\:/Users/yinka333/AndroidStudioProjects/New Movielist/app/src/main/res/xml/movie.xml" value="0.13854166666666667" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/anime.xml" value="0.2484375" />
+        <entry key="app/src/main/res/layout/detail_screen.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.2484375" />
       </map>
     </option>
   </component>
