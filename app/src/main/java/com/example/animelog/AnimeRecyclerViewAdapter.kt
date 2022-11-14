@@ -16,7 +16,7 @@ import android.content.Context
 const val ANIME_EXTRA = "ANIME_EXTRA"
 
 class AnimeRecyclerViewAdapter(
-    private val animes: List<Anime>, private val context: Context
+    private val animes: MutableList<DisplayAnime>, private val context: Context
 )  : RecyclerView.Adapter<AnimeRecyclerViewAdapter.AnimeViewHolder>()
 {
     inner class AnimeViewHolder(val mView: View) : RecyclerView.ViewHolder(mView), View.OnClickListener {
@@ -24,6 +24,7 @@ class AnimeRecyclerViewAdapter(
         val mAnimeTitle: TextView
         val mAnimeGenre: TextView
         val mAnimeImage: ImageView
+
 
         init {
             mAnimeTitle = itemView.findViewById<TextView>(R.id.title)
@@ -44,6 +45,7 @@ class AnimeRecyclerViewAdapter(
 
 
 
+
         }
     }
 
@@ -55,12 +57,10 @@ class AnimeRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: AnimeViewHolder, position: Int) {
-        val anime = animes[position]
+        val anime = animes.get(position)
         holder.mAnimeTitle.text = anime.title
         holder.mAnimeGenre.text = ""
-        for (genre in anime.genre.orEmpty()){
-            holder.mAnimeGenre.text = holder.mAnimeGenre.text.toString() + genre + "     "
-        }
+        holder.mAnimeGenre.text = anime.genre
         Glide.with(holder.mView)
             .load(anime.posterImageUrl)
             .centerInside()

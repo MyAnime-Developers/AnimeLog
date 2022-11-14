@@ -19,10 +19,10 @@ class Anime (): Serializable {
     var genre: MutableList<String>? = null
 
     @SerializedName("rating")
-    var rating: Float? = null
+    var rating: String? = null
 
-    @SerializedName("voice_Actors")
-    var voice_Actors: MutableList<String>? = null
+    @SerializedName("voiceActors")
+    var voiceActors: MutableList<String>? = null
 
 
 }

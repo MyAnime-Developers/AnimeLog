@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
@@ -16,6 +17,8 @@ import com.example.animelog.fragments.SearchFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import okhttp3.Headers
 import com.google.gson.Gson
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.json.JSONException
 
 class MainActivity : AppCompatActivity() {
@@ -55,5 +58,8 @@ class MainActivity : AppCompatActivity() {
 //
 //    }
 }
+
+
+
 
 }
