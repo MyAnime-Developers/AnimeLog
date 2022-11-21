@@ -29,7 +29,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        val view = inflater.inflate(layout.fragment_profile, container, false)
         var itemsAdapter = AnimeRecyclerViewAdapter(AnimeList, view.context)
         var ProfileRv = view.findViewById<RecyclerView>(R.id.profileRv)
         ProfileRv.adapter = itemsAdapter
@@ -47,6 +47,9 @@ class ProfileFragment : Fragment() {
                         entity.posterImageUrl,
                         entity.genre,
                         entity.rating,
+                        entity.voiceActors,
+                        entity.studio,
+                        entity.source,
                         entity.voiceActors
 
                     )

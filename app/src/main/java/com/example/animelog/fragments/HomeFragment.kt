@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.lifecycle.lifecycleScope
+//import androidx.lifecycle.lifecycleScope
 import android.widget.TextView
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -116,9 +116,22 @@ class HomeFragment : Fragment() {
                         if (rating == "null"){
                             rating = null
                         }
+                        var studios = json_obj.getJSONArray("studios")
+                        var studio_list = ""
+                            for (i in 0 until studios.length()) {
+                                var studio = studios.getJSONObject(i)
+                                var studio_name = studio.getString("name")
+                                studio_list += studio_name + "  "
+                            }
+                        var source = json_obj.getString("source")
+                        var id = json_obj.getString("mal_id")
+                        Log.i("newInfo", "id is $id")
+                        Log.i("newInfo", "source is $source")
+                        Log.i("newInfo", "studios are $studio_list")
 
 
-                        var new_da = DisplayAnime(title, description, posterImageUrl, genresDA, rating, "")
+
+                        var new_da = DisplayAnime(title, description, posterImageUrl, genresDA, rating, "", studio_list, source, id)
 
                             AnimeList.add(new_da)
                         }

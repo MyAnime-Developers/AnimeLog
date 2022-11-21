@@ -1,4 +1,4 @@
-package com.example.animelog.fragments
+package com.example.animelog
 
 import android.content.Intent
 import android.media.Image
@@ -7,10 +7,17 @@ import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.codepath.asynchttpclient.AsyncHttpClient
+import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.example.animelog.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import okhttp3.Headers
+import org.json.JSONException
+import org.w3c.dom.Text
 
 
 private const val TAG = "DetailActivity"
@@ -18,9 +25,10 @@ const val ENTRY_EXTRA = "WATCHLIST_EXTRA"
 const val REMOVE_EXTRA = "WATCHLIST_REMOVE_EXTRA"
 
 private var existence: Boolean = false
+private val voiceActors = mutableListOf<VoiceActor>()
+private lateinit var rvVoiceActors: RecyclerView
 
 class DetailActivity : AppCompatActivity() {
-
     private lateinit var animeTitle: TextView
     private lateinit var rating: RatingBar
     private lateinit var animeOverview: TextView
@@ -29,6 +37,9 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var addButton: Button
     private lateinit var removeButton: Button
     private lateinit var ratingText: TextView
+    private lateinit var studios: TextView
+    private lateinit var source: TextView
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +56,9 @@ class DetailActivity : AppCompatActivity() {
         animeGenre = findViewById(R.id.genre)
 
         ratingText = findViewById(R.id.ratingText)
+        studios = findViewById(R.id.tvStudios)
+        source = findViewById(R.id.tvSource)
+
 
 
 
@@ -58,6 +72,10 @@ class DetailActivity : AppCompatActivity() {
             .into(animeImage)
 
         animeGenre.text = "Genres: " + anime.genre
+        studios.text = "Studio(s): " + anime.studio
+        source.text = "Source: " + anime.source
+
+
 
 
             var fl = anime.rating?.toFloat()
@@ -71,7 +89,7 @@ class DetailActivity : AppCompatActivity() {
                 ratingText.text = "Rating: Not available"
             }
 
-            Log.e("DetailActivity", "$fl")
+
 
         addButton.setOnClickListener{
             lifecycleScope.launch(Dispatchers.IO){
@@ -82,7 +100,10 @@ class DetailActivity : AppCompatActivity() {
                         genre = anime.genre,
                         posterImageUrl = anime.posterImageUrl,
                         rating = anime.rating,
-                        voiceActors = anime.voiceActors
+                        voiceActors = anime.voiceActors,
+                        studio = anime.studio,
+                        source = anime.source,
+                        anime_id = anime.anime_id
 
                     )
                 )
@@ -93,6 +114,7 @@ class DetailActivity : AppCompatActivity() {
             val toast = Toast.makeText(this, "Added to watch list", Toast.LENGTH_SHORT)
             toast.show()
         }
+
 
         removeButton.setOnClickListener{
             lifecycleScope.launch(Dispatchers.IO){
@@ -107,6 +129,53 @@ class DetailActivity : AppCompatActivity() {
             val toast = Toast.makeText(this, "Removed from watch list", Toast.LENGTH_SHORT)
             toast.show()
         }
+//
+
+        val VoiceAdapter = VoiceActorAdapter(this, voiceActors)
+        rvVoiceActors = findViewById(R.id.rvVoiceActors)
+        rvVoiceActors.adapter = VoiceAdapter
+        rvVoiceActors.layoutManager = LinearLayoutManager(this)
+        val client = AsyncHttpClient()
+        var animeId = anime.anime_id
+        val voice_actor_api = "https://api.jikan.moe/v4/anime/$animeId/characters"
+        client.get(voice_actor_api, object : JsonHttpResponseHandler() {
+            // if fails
+            override fun onFailure(
+                statusCode: Int,
+                headers: Headers?,
+                response: String?,
+                throwable: Throwable?
+            ) {
+                Log.e("MainActivity", "On Failure $statusCode")
+            }
+
+            // if succeeds
+            override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON) {
+                try {
+                    voiceActors.clear()
+                    val showJsonArray = json.jsonObject.getJSONArray("data")
+                    voiceActors.addAll(VoiceActor.fromJsonArray(showJsonArray))
+                    Log.i("voice", "Voice actors are " + anime.voiceActors)
+
+
+                }
+                // if theres an error, throw error message and hide progress bar
+                catch (e: JSONException) {
+                    Log.e("MainActivity", "Encountered exception $e")
+
+                }
+
+                // when done, updates recycleview adapter and hides progress bar to show anime
+                VoiceAdapter.notifyDataSetChanged()
+
+
+
+
+
+            }
+        })
+
+
 
 
 

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/characterIv"
+        android:layout_width="114dp"
+        android:layout_height="105dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.091"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/actorIv"
+        android:layout_width="114dp"
+        android:layout_height="105dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.091"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/characterNametv"
+        android:layout_width="66dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:text="Character Name"
+        android:textSize="10dp"
+        app:layout_constraintStart_toEndOf="@+id/characterIv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/roleTv"
+        android:layout_width="71dp"
+        android:layout_height="30dp"
+        android:textSize = "12dp"
+        android:layout_marginTop="12dp"
+        android:text="Role"
+        app:layout_constraintStart_toEndOf="@+id/characterIv"
+        app:layout_constraintTop_toBottomOf="@+id/characterNametv" />
+
+    <TextView
+        android:id="@+id/actorNameTv"
+        android:layout_width="56dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:text="Actor Name"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/actorIv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/languageTv"
+        android:layout_width="63dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:text="Language"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toStartOf="@+id/actorIv"
+        app:layout_constraintTop_toBottomOf="@+id/actorNameTv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

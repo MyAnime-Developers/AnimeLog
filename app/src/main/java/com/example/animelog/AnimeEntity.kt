@@ -12,6 +12,9 @@ data class AnimeEntity(
     @ColumnInfo(name = "posterImageUrl") val posterImageUrl: String?,
     @ColumnInfo(name = "genre") val genre: String?,
     @ColumnInfo(name = "rating") val rating: String?,
-    @ColumnInfo(name = "voiceActors") val voiceActors: String?
+    @ColumnInfo(name = "voiceActors") val voiceActors: String,
+    @ColumnInfo(name = "studio") val studio: String?,
+    @ColumnInfo(name = "source") val source: String?,
+    @ColumnInfo(name = "anime_id") val anime_id: String?
 
 )

@@ -6,5 +6,8 @@ data class DisplayAnime(
     val posterImageUrl: String?,
     val genre: String?,
     val rating: String?,
-    val voiceActors: String?,
+    val voiceActors: String,
+    val studio: String?,
+    val source: String?,
+    val anime_id: String
     ) : java.io.Serializable

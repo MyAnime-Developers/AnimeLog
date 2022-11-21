@@ -20,10 +20,8 @@
             android:background="@android:color/white"
             android:backgroundTint="#4CAF50"
             android:text="Remove from Watchlist"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/animeOverview"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/animeOverview" />
 
         <TextView
             android:id="@+id/animeTitle"
@@ -32,7 +30,7 @@
             android:layout_marginTop="28dp"
             android:gravity="center"
             android:text="@string/textview"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -61,7 +59,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:text="@string/textview2"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ratingText"
@@ -81,11 +78,13 @@
 
         <TextView
             android:id="@+id/genre"
-            android:layout_width="104dp"
-            android:layout_height="118dp"
+            android:layout_width="116dp"
+            android:layout_height="76dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="16dp"
             android:text="@string/textview"
+            android:textSize="16dp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/animeTitle" />
 
@@ -98,22 +97,54 @@
             android:background="@android:color/white"
             android:backgroundTint="#4CAF50"
             android:text="Add to Watchlist"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/removeButton"
             app:layout_constraintHorizontal_bias="0.021"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/animeOverview"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/animeOverview" />
 
         <TextView
             android:id="@+id/ratingText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:textSize = "20dp"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rating" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvVoiceActors"
+            android:layout_width="match_parent"
+            android:layout_height="227dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addButton" />
+
+        <TextView
+            android:id="@+id/tvStudios"
+            android:layout_width="112dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="16dp"
+            android:text="TextView"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/animeTitle" />
+
+        <TextView
+            android:id="@+id/tvSource"
+            android:layout_width="98dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="204dp"
+            android:layout_marginEnd="28dp"
+            android:text="TextView"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/animeTitle" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
