@@ -32,7 +32,7 @@ AnimeLog is an app where users can track the anime shows they're watching, as we
 - [x] **user can see three fragments (home/profile/stream)**
 - [x] **user can see general information about an anime**
 - [x] **user can see pictures and feed of animes**
-- [ ] **user can view their watchlist**
+- [x] **user can see additional information about an anime**
 - [ ] **user can search for anime**
 
 **Stretch Features**
