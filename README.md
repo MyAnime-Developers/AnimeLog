@@ -97,4 +97,3 @@ AnimeLog is an app where users can track the anime shows they're watching, as we
 
 ### Sprint 6
 <video src ="https://www.loom.com/share/528cd8d843954cd3b374d19d9920619e" autoplay controls loop>
-</video>
