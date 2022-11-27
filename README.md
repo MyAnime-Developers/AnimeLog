@@ -94,3 +94,6 @@ AnimeLog is an app where users can track the anime shows they're watching, as we
 
 ### Sprint 5
 <img src = "https://media.giphy.com/media/GdpOQsGSX2jOgqUmQU/giphy.gif" width=300>
+
+### Sprint 6
+<img src = "" width=300>
