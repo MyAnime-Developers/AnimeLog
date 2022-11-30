@@ -62,8 +62,8 @@ class HomeFragment : Fragment() {
         val client = AsyncHttpClient()
         var gson = Gson()
 
-        next_btn.setEnabled(false)
-        previous_btn.setEnabled(false)
+        next_btn.setVisibility(View.GONE)
+        previous_btn.setVisibility(View.GONE)
 
         // attempts to retrieve api data
         fun call_api(url: String, page: Int) {
@@ -125,23 +125,22 @@ class HomeFragment : Fragment() {
                             }
                         var source = json_obj.getString("source")
                         var id = json_obj.getString("mal_id")
-                        Log.i("newInfo", "id is $id")
-                        Log.i("newInfo", "source is $source")
-                        Log.i("newInfo", "studios are $studio_list")
 
 
 
                         var new_da = DisplayAnime(title, description, posterImageUrl, genresDA, rating, "", studio_list, source, id)
-
+                        if (new_da.genre?.contains("Hentai") == false) {
                             AnimeList.add(new_da)
                         }
 
+                        }
+
                         if (has_next_page){
-                            next_btn.setEnabled(true)
+                            next_btn.setVisibility(View.VISIBLE)
                         }
 
                         if (page != 1){
-                            previous_btn.setEnabled(true)
+                            previous_btn.setVisibility(View.VISIBLE)
                         }
 
                     }
@@ -167,8 +166,8 @@ class HomeFragment : Fragment() {
         var page_num = 1
 
         next_btn.setOnClickListener(){
-            next_btn.setEnabled(false)
-            previous_btn.setEnabled(false)
+            next_btn.setVisibility(View.GONE)
+            previous_btn.setVisibility(View.GONE)
             AnimeList.clear()
             page_num += 1
             call_api(current_season_api, page_num)
@@ -176,8 +175,8 @@ class HomeFragment : Fragment() {
         }
 
         previous_btn.setOnClickListener(){
-            next_btn.setEnabled(false)
-            previous_btn.setEnabled(false)
+            next_btn.setVisibility(View.GONE)
+            previous_btn.setVisibility(View.GONE)
             AnimeList.clear()
             page_num -= 1
             call_api(current_season_api, page_num)

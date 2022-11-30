@@ -9,5 +9,5 @@ data class DisplayAnime(
     val voiceActors: String,
     val studio: String?,
     val source: String?,
-    val anime_id: String
+    val anime_id: String?
     ) : java.io.Serializable

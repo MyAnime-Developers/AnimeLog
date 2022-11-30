@@ -2,6 +2,7 @@ package com.example.animelog
 
 import android.content.Intent
 import android.media.Image
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
@@ -39,6 +40,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var ratingText: TextView
     private lateinit var studios: TextView
     private lateinit var source: TextView
+    private lateinit var mp: MediaPlayer
 
 
 
@@ -49,6 +51,7 @@ class DetailActivity : AppCompatActivity() {
         addButton = findViewById(R.id.addButton)
         removeButton = findViewById(R.id.removeButton)
 
+
         animeTitle = findViewById(R.id.animeTitle)
         rating = findViewById(R.id.rating)
         animeOverview = findViewById(R.id.animeOverview)
@@ -58,6 +61,7 @@ class DetailActivity : AppCompatActivity() {
         ratingText = findViewById(R.id.ratingText)
         studios = findViewById(R.id.tvStudios)
         source = findViewById(R.id.tvSource)
+
 
 
 
@@ -92,6 +96,8 @@ class DetailActivity : AppCompatActivity() {
 
 
         addButton.setOnClickListener{
+            mp = MediaPlayer.create(this, R.raw.ding)
+            mp.start()
             lifecycleScope.launch(Dispatchers.IO){
                 (application as AnimeApplication).db.AnimeDao().insert(
                     AnimeEntity(
@@ -117,6 +123,8 @@ class DetailActivity : AppCompatActivity() {
 
 
         removeButton.setOnClickListener{
+            mp = MediaPlayer.create(this, R.raw.pop)
+            mp.start()
             lifecycleScope.launch(Dispatchers.IO){
                 anime.title?.let { it1 ->
                     (application as AnimeApplication).db.AnimeDao().deleteByanimeTitle(
@@ -125,7 +133,6 @@ class DetailActivity : AppCompatActivity() {
                 }
                 (application as AnimeApplication).db.AnimeDao().deleteDuplicates()
             }
-
             val toast = Toast.makeText(this, "Removed from watch list", Toast.LENGTH_SHORT)
             toast.show()
         }
@@ -137,6 +144,9 @@ class DetailActivity : AppCompatActivity() {
         rvVoiceActors.layoutManager = LinearLayoutManager(this)
         val client = AsyncHttpClient()
         var animeId = anime.anime_id
+
+        voiceActors.clear()
+
         val voice_actor_api = "https://api.jikan.moe/v4/anime/$animeId/characters"
         client.get(voice_actor_api, object : JsonHttpResponseHandler() {
             // if fails
@@ -146,16 +156,14 @@ class DetailActivity : AppCompatActivity() {
                 response: String?,
                 throwable: Throwable?
             ) {
-                Log.e("MainActivity", "On Failure $statusCode")
+                Log.e("DetailActivity", "On Failure $statusCode")
             }
 
             // if succeeds
             override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON) {
                 try {
-                    voiceActors.clear()
                     val showJsonArray = json.jsonObject.getJSONArray("data")
                     voiceActors.addAll(VoiceActor.fromJsonArray(showJsonArray))
-                    Log.i("voice", "Voice actors are " + anime.voiceActors)
 
 
                 }

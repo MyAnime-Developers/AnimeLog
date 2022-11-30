@@ -108,9 +108,6 @@ class SearchFragment : Fragment() {
                             }
                             var source = json_obj.getString("source")
                             var id = json_obj.getString("mal_id")
-                            Log.i("newInfo", "id is $id")
-                            Log.i("newInfo", "source is $source")
-                            Log.i("newInfo", "studios are $studio_list")
 
 
 
@@ -170,10 +167,13 @@ class SearchFragment : Fragment() {
         }
 
         searchButton.setOnClickListener(){
+            next_btn.setEnabled(false)
+            previous_btn.setEnabled(false)
+            page_num = 1
             AnimeList.clear()
             editText = view.findViewById<EditText>(R.id.searchBar).text
             searchAPI = "https://api.jikan.moe/v4/anime?q=$editText"
-            call_api(searchAPI, 1)
+            call_api(searchAPI, page_num)
             itemsAdapter.notifyDataSetChanged()
         }
     }

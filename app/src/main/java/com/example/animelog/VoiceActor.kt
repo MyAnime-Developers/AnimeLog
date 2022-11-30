@@ -41,11 +41,6 @@ data class VoiceActor(
                     lang = actor.getString("language")
 
                 }
-
-
-                Log.i("actor", "length of actors is ${actors.length()}")
-                Log.i("actor", "language is $lang")
-                Log.i("actor", "role is $role")
 //
                 voiceActors.add(
                     VoiceActor(

@@ -50,7 +50,7 @@ class ProfileFragment : Fragment() {
                         entity.voiceActors,
                         entity.studio,
                         entity.source,
-                        entity.voiceActors
+                        entity.anime_id
 
                     )
                 }.also { mappedList ->
